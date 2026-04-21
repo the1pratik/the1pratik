@@ -3,460 +3,692 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Remote Control</title>
+  <title>Terabox Opener</title>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-      user-select: none;
+    }
+
+    :root {
+      --bg: #0f1116;
+      --panel: #1a1d27;
+      --panel-2: #232734;
+      --border: #2a2f3d;
+      --text: #e6e8ee;
+      --muted: #8a93a6;
+      --accent: #5b8cff;
+      --accent-2: #3d6fe6;
+      --danger: #ef4444;
+      --ok: #22c55e;
+    }
+
+    html, body {
+      height: 100%;
     }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #1a1a2e;
-      color: #e0e0e0;
+      background: var(--bg);
+      color: var(--text);
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: center;
-      padding: 16px;
+      padding: 24px 16px;
     }
 
-    .remote {
-      background: linear-gradient(145deg, #16213e, #0f3460);
-      border-radius: 40px;
-      padding: 32px 24px;
-      max-width: 360px;
+    .app {
       width: 100%;
-      box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      max-width: 720px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
 
     .brand {
-      text-align: center;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: #e94560;
-      margin-bottom: 28px;
-    }
-
-    /* Power & Input row */
-    .top-row {
       display: flex;
-      justify-content: space-between;
-      margin-bottom: 24px;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
     }
 
-    /* Button base */
-    button {
-      border: none;
-      cursor: pointer;
-      font-family: inherit;
-      transition: transform 0.1s, box-shadow 0.1s, background 0.1s;
-      position: relative;
-      outline: none;
-    }
-
-    button:active {
-      transform: scale(0.93);
-    }
-
-    /* Round small button */
-    .btn-round {
-      width: 52px;
-      height: 52px;
+    .brand .dot {
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      background: linear-gradient(145deg, #1a1a3e, #12122e);
-      color: #e0e0e0;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+    }
+
+    .icon-btn {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      cursor: pointer;
       font-size: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow:
-        3px 3px 8px rgba(0, 0, 0, 0.4),
-        -2px -2px 6px rgba(255, 255, 255, 0.03);
+      transition: all 0.15s;
     }
 
-    .btn-round:active {
-      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
+    .icon-btn:hover {
+      color: var(--text);
+      border-color: #3a4157;
     }
 
-    .btn-power {
-      background: linear-gradient(145deg, #c0392b, #96281b);
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    input[type="text"], input[type="url"] {
+      flex: 1;
+      min-width: 220px;
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    input[type="text"]:focus, input[type="url"]:focus {
+      border-color: var(--accent);
+    }
+
+    input::placeholder {
+      color: var(--muted);
+    }
+
+    button.primary, button.secondary {
+      border: 1px solid transparent;
       color: #fff;
-    }
-
-    .btn-power:active {
-      background: #e94560;
-    }
-
-    /* Volume & Channel columns */
-    .vol-ch-row {
-      display: flex;
-      justify-content: space-between;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s;
+      display: inline-flex;
       align-items: center;
-      margin-bottom: 24px;
+      gap: 8px;
+      text-decoration: none;
     }
 
-    .vol-ch-group {
-      display: flex;
-      flex-direction: column;
+    button.primary {
+      background: var(--accent);
+    }
+
+    button.primary:hover {
+      background: var(--accent-2);
+    }
+
+    button.primary:disabled {
+      background: #3a4157;
+      cursor: not-allowed;
+    }
+
+    button.secondary {
+      background: var(--panel-2);
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    button.secondary:hover {
+      border-color: #3a4157;
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    .status {
+      display: none;
       align-items: center;
-      gap: 4px;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 14px;
     }
 
-    .vol-ch-group .label {
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #888;
+    .status.show { display: flex; }
+
+    .status.loading {
+      background: rgba(91, 140, 255, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(91, 140, 255, 0.3);
+    }
+
+    .status.error {
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--danger);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+    }
+
+    .spinner {
+      width: 16px;
+      height: 16px;
+      border: 2px solid currentColor;
+      border-right-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .result { display: none; }
+    .result.show { display: block; }
+
+    .file-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 10px 0;
+    }
+
+    .thumb {
+      width: 56px;
+      height: 56px;
+      border-radius: 10px;
+      background: var(--panel-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .file-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .file-name {
+      font-weight: 600;
+      word-break: break-all;
+      line-height: 1.3;
       margin-bottom: 4px;
     }
 
-    .btn-pill {
-      width: 56px;
-      height: 44px;
-      border-radius: 12px;
-      background: linear-gradient(145deg, #1a1a3e, #12122e);
-      color: #e0e0e0;
-      font-size: 20px;
-      font-weight: 700;
+    .file-meta {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .actions {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow:
-        3px 3px 8px rgba(0, 0, 0, 0.4),
-        -2px -2px 6px rgba(255, 255, 255, 0.03);
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
     }
 
-    .btn-pill:active {
-      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
-    }
-
-    /* D-Pad */
-    .dpad-container {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 24px;
-    }
-
-    .dpad {
-      position: relative;
-      width: 180px;
-      height: 180px;
-    }
-
-    .dpad .btn-ok {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: linear-gradient(145deg, #e94560, #c0392b);
-      color: #fff;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
-      z-index: 2;
-    }
-
-    .dpad .btn-ok:active {
-      background: linear-gradient(145deg, #c0392b, #e94560);
-      box-shadow: 0 2px 8px rgba(233, 69, 96, 0.4);
-    }
-
-    .dpad .btn-dir {
-      position: absolute;
-      background: linear-gradient(145deg, #1a1a3e, #12122e);
-      color: #aaa;
-      font-size: 22px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow:
-        3px 3px 8px rgba(0, 0, 0, 0.4),
-        -2px -2px 6px rgba(255, 255, 255, 0.03);
-    }
-
-    .dpad .btn-dir:active {
-      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
-      color: #e94560;
-    }
-
-    .btn-up {
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 56px;
-      height: 52px;
-      border-radius: 16px 16px 8px 8px;
-    }
-
-    .btn-down {
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 56px;
-      height: 52px;
-      border-radius: 8px 8px 16px 16px;
-    }
-
-    .btn-left {
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 52px;
-      height: 56px;
-      border-radius: 16px 8px 8px 16px;
-    }
-
-    .btn-right {
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 52px;
-      height: 56px;
-      border-radius: 8px 16px 16px 8px;
-    }
-
-    /* Media controls */
-    .media-row {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    .btn-media {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: linear-gradient(145deg, #1a1a3e, #12122e);
-      color: #e0e0e0;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow:
-        3px 3px 8px rgba(0, 0, 0, 0.4),
-        -2px -2px 6px rgba(255, 255, 255, 0.03);
-    }
-
-    .btn-media:active {
-      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
-      color: #e94560;
-    }
-
-    /* Navigation row */
-    .nav-row {
-      display: flex;
-      justify-content: space-around;
-      margin-bottom: 24px;
-    }
-
-    .btn-nav {
-      padding: 10px 18px;
+    .player-wrap {
+      margin-top: 16px;
+      background: #000;
       border-radius: 10px;
-      background: linear-gradient(145deg, #1a1a3e, #12122e);
-      color: #e0e0e0;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      box-shadow:
-        3px 3px 8px rgba(0, 0, 0, 0.4),
-        -2px -2px 6px rgba(255, 255, 255, 0.03);
+      overflow: hidden;
+      display: none;
     }
 
-    .btn-nav:active {
-      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
-      color: #e94560;
+    .player-wrap.show { display: block; }
+
+    .player-wrap video,
+    .player-wrap audio {
+      width: 100%;
+      display: block;
     }
 
-    /* Number pad */
-    .numpad {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+    .player-wrap audio { padding: 12px; background: #000; }
+
+    details.settings summary {
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 4px 0;
+      user-select: none;
+      list-style: none;
+    }
+
+    details.settings summary::-webkit-details-marker { display: none; }
+    details.settings summary::before { content: "\25B8  "; }
+    details.settings[open] summary::before { content: "\25BE  "; }
+
+    details.settings .body {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
       gap: 10px;
-      margin-bottom: 24px;
     }
 
-    .btn-num {
-      height: 46px;
-      border-radius: 12px;
-      background: linear-gradient(145deg, #1a1a3e, #12122e);
-      color: #e0e0e0;
-      font-size: 18px;
-      font-weight: 500;
+    label.field {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow:
-        3px 3px 8px rgba(0, 0, 0, 0.4),
-        -2px -2px 6px rgba(255, 255, 255, 0.03);
+      flex-direction: column;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--muted);
     }
 
-    .btn-num:active {
-      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.5);
-      color: #e94560;
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      padding: 8px 0 16px;
+      line-height: 1.5;
     }
 
-    /* Color buttons */
-    .color-row {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .btn-color {
-      width: 32px;
-      height: 12px;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    }
-
-    .btn-color:active {
-      transform: scale(0.9);
-    }
-
-    .btn-red    { background: #e74c3c; }
-    .btn-green  { background: #2ecc71; }
-    .btn-yellow { background: #f1c40f; }
-    .btn-blue   { background: #3498db; }
-
-    /* Feedback overlay */
-    .feedback {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(233, 69, 96, 0.9);
-      color: #fff;
-      padding: 8px 20px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 600;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.2s;
-      z-index: 100;
-    }
-
-    .feedback.show {
-      opacity: 1;
+    @media (max-width: 480px) {
+      .input-row button.primary { width: 100%; }
     }
   </style>
 </head>
 <body>
-  <div class="feedback" id="feedback"></div>
-
-  <div class="remote">
-    <div class="brand">Remote</div>
-
-    <!-- Power & Input -->
-    <div class="top-row">
-      <button class="btn-round btn-power" data-action="Power" aria-label="Power">&#x23FB;</button>
-      <button class="btn-round" data-action="Mute" aria-label="Mute">&#x1F507;</button>
-      <button class="btn-round" data-action="Input" aria-label="Input">&#x23CF;</button>
-    </div>
-
-    <!-- Volume & Channel with D-Pad -->
-    <div class="vol-ch-row">
-      <div class="vol-ch-group">
-        <span class="label">Vol</span>
-        <button class="btn-pill" data-action="Volume Up" aria-label="Volume Up">+</button>
-        <button class="btn-pill" data-action="Volume Down" aria-label="Volume Down">&minus;</button>
+  <div class="app">
+    <header>
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Terabox Opener</span>
       </div>
+      <button class="icon-btn" id="pasteBtn" title="Paste from clipboard" aria-label="Paste">&#128203;</button>
+    </header>
 
-      <div class="dpad">
-        <button class="btn-dir btn-up" data-action="Up" aria-label="Up">&#x25B2;</button>
-        <button class="btn-dir btn-right" data-action="Right" aria-label="Right">&#x25B6;</button>
-        <button class="btn-dir btn-down" data-action="Down" aria-label="Down">&#x25BC;</button>
-        <button class="btn-dir btn-left" data-action="Left" aria-label="Left">&#x25C0;</button>
-        <button class="btn-ok" data-action="OK" aria-label="OK">OK</button>
+    <div class="card">
+      <div class="input-row">
+        <input
+          type="url"
+          id="linkInput"
+          placeholder="Paste a Terabox share link..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+        <button class="primary" id="openBtn">Open</button>
       </div>
-
-      <div class="vol-ch-group">
-        <span class="label">Ch</span>
-        <button class="btn-pill" data-action="Channel Up" aria-label="Channel Up">+</button>
-        <button class="btn-pill" data-action="Channel Down" aria-label="Channel Down">&minus;</button>
+      <div class="hint">
+        Works with <code>terabox.com</code>, <code>1024terabox.com</code>, <code>teraboxapp.com</code>,
+        <code>mirrobox.com</code>, <code>nephobox.com</code>, <code>4funbox.com</code>, and similar.
       </div>
     </div>
 
-    <!-- Navigation -->
-    <div class="nav-row">
-      <button class="btn-nav" data-action="Menu">Menu</button>
-      <button class="btn-nav" data-action="Home">Home</button>
-      <button class="btn-nav" data-action="Back">Back</button>
-      <button class="btn-nav" data-action="Guide">Guide</button>
+    <div class="status" id="status" role="status" aria-live="polite"></div>
+
+    <div class="card result" id="result">
+      <div class="file-row">
+        <div class="thumb" id="thumb">&#128196;</div>
+        <div class="file-info">
+          <div class="file-name" id="fileName">&mdash;</div>
+          <div class="file-meta" id="fileMeta">&mdash;</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="primary" id="playBtn">&#9654; Play</button>
+        <a class="secondary" id="downloadBtn" href="#" download target="_blank" rel="noopener">&#11015; Download</a>
+        <a class="secondary" id="openDirectBtn" href="#" target="_blank" rel="noopener">&#8599; Direct link</a>
+        <button class="secondary" id="copyBtn">&#128279; Copy link</button>
+      </div>
+
+      <div class="player-wrap" id="playerWrap"></div>
     </div>
 
-    <!-- Media Controls -->
-    <div class="media-row">
-      <button class="btn-media" data-action="Rewind" aria-label="Rewind">&#x23EA;</button>
-      <button class="btn-media" data-action="Play/Pause" aria-label="Play Pause">&#x23EF;</button>
-      <button class="btn-media" data-action="Stop" aria-label="Stop">&#x23F9;</button>
-      <button class="btn-media" data-action="Fast Forward" aria-label="Fast Forward">&#x23E9;</button>
+    <div class="card">
+      <details class="settings">
+        <summary>Settings</summary>
+        <div class="body">
+          <label class="field">
+            Extractor API endpoint
+            <input type="url" id="apiInput" spellcheck="false" autocomplete="off">
+          </label>
+          <div class="hint">
+            This app uses a public third-party extractor to resolve direct download URLs
+            (Terabox does not expose an official one). If the default stops working, swap
+            in another compatible endpoint. Your link is sent to the endpoint above.
+          </div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="secondary" id="saveApiBtn">Save</button>
+            <button class="secondary" id="resetApiBtn">Reset default</button>
+          </div>
+        </div>
+      </details>
     </div>
 
-    <!-- Number Pad -->
-    <div class="numpad">
-      <button class="btn-num" data-action="1">1</button>
-      <button class="btn-num" data-action="2">2</button>
-      <button class="btn-num" data-action="3">3</button>
-      <button class="btn-num" data-action="4">4</button>
-      <button class="btn-num" data-action="5">5</button>
-      <button class="btn-num" data-action="6">6</button>
-      <button class="btn-num" data-action="7">7</button>
-      <button class="btn-num" data-action="8">8</button>
-      <button class="btn-num" data-action="9">9</button>
-      <button class="btn-num" data-action="Info">INFO</button>
-      <button class="btn-num" data-action="0">0</button>
-      <button class="btn-num" data-action="Exit">EXIT</button>
-    </div>
-
-    <!-- Color Buttons -->
-    <div class="color-row">
-      <button class="btn-color btn-red" data-action="Red" aria-label="Red"></button>
-      <button class="btn-color btn-green" data-action="Green" aria-label="Green"></button>
-      <button class="btn-color btn-yellow" data-action="Yellow" aria-label="Yellow"></button>
-      <button class="btn-color btn-blue" data-action="Blue" aria-label="Blue"></button>
-    </div>
+    <footer>
+      No ads. No trackers. Runs entirely in your browser.
+    </footer>
   </div>
 
   <script>
-    const feedback = document.getElementById('feedback');
-    let feedbackTimer;
+    const DEFAULT_API = 'https://wdzone-terabox-api.vercel.app/api';
 
-    function showFeedback(text) {
-      feedback.textContent = text;
-      feedback.classList.add('show');
-      clearTimeout(feedbackTimer);
-      feedbackTimer = setTimeout(() => feedback.classList.remove('show'), 800);
+    const TERABOX_HOSTS = [
+      'terabox.com', 'www.terabox.com',
+      '1024terabox.com', 'www.1024terabox.com',
+      'teraboxapp.com', 'www.teraboxapp.com',
+      'terabox.app', 'www.terabox.app',
+      'mirrobox.com', 'nephobox.com',
+      '4funbox.com', 'momerybox.com',
+      'tibibox.com', 'terabox.fun'
+    ];
+
+    const els = {
+      input: document.getElementById('linkInput'),
+      openBtn: document.getElementById('openBtn'),
+      pasteBtn: document.getElementById('pasteBtn'),
+      status: document.getElementById('status'),
+      result: document.getElementById('result'),
+      thumb: document.getElementById('thumb'),
+      fileName: document.getElementById('fileName'),
+      fileMeta: document.getElementById('fileMeta'),
+      playBtn: document.getElementById('playBtn'),
+      downloadBtn: document.getElementById('downloadBtn'),
+      openDirectBtn: document.getElementById('openDirectBtn'),
+      copyBtn: document.getElementById('copyBtn'),
+      playerWrap: document.getElementById('playerWrap'),
+      apiInput: document.getElementById('apiInput'),
+      saveApiBtn: document.getElementById('saveApiBtn'),
+      resetApiBtn: document.getElementById('resetApiBtn'),
+    };
+
+    els.apiInput.value = localStorage.getItem('terabox-api') || DEFAULT_API;
+
+    function setStatus(kind, text) {
+      els.status.className = 'status show ' + kind;
+      els.status.innerHTML = (kind === 'loading' ? '<span class="spinner"></span>' : '') +
+        '<span></span>';
+      els.status.lastElementChild.textContent = text;
     }
 
-    document.querySelectorAll('[data-action]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const action = btn.getAttribute('data-action');
-        showFeedback(action);
+    function clearStatus() {
+      els.status.className = 'status';
+      els.status.innerHTML = '';
+    }
 
-        // Haptic feedback if available
-        if (navigator.vibrate) {
-          navigator.vibrate(30);
+    function hideResult() {
+      els.result.classList.remove('show');
+      els.playerWrap.classList.remove('show');
+      els.playerWrap.innerHTML = '';
+    }
+
+    function humanSize(bytes) {
+      const n = Number(bytes);
+      if (!Number.isFinite(n) || n <= 0) return '';
+      const units = ['B', 'KB', 'MB', 'GB', 'TB'];
+      let i = 0;
+      let v = n;
+      while (v >= 1024 && i < units.length - 1) { v /= 1024; i++; }
+      return v.toFixed(v < 10 && i > 0 ? 2 : 1) + ' ' + units[i];
+    }
+
+    function isTeraboxUrl(raw) {
+      try {
+        const u = new URL(raw);
+        return TERABOX_HOSTS.some(h => u.hostname === h || u.hostname.endsWith('.' + h));
+      } catch {
+        return false;
+      }
+    }
+
+    function extOf(name) {
+      const m = /\.([A-Za-z0-9]+)$/.exec(name || '');
+      return m ? m[1].toLowerCase() : '';
+    }
+
+    const VIDEO_EXT = new Set(['mp4', 'm4v', 'mkv', 'webm', 'mov', 'avi', 'ts']);
+    const AUDIO_EXT = new Set(['mp3', 'm4a', 'wav', 'ogg', 'flac', 'aac']);
+    const IMAGE_EXT = new Set(['jpg', 'jpeg', 'png', 'gif', 'webp', 'bmp', 'svg']);
+
+    function kindOf(name) {
+      const e = extOf(name);
+      if (VIDEO_EXT.has(e)) return 'video';
+      if (AUDIO_EXT.has(e)) return 'audio';
+      if (IMAGE_EXT.has(e)) return 'image';
+      return 'file';
+    }
+
+    function iconFor(name) {
+      switch (kindOf(name)) {
+        case 'video': return '\u{1F3AC}';
+        case 'audio': return '\u{1F3B5}';
+        case 'image': return '\u{1F5BC}️';
+        default: return '\u{1F4C4}';
+      }
+    }
+
+    // Normalize responses from a few common extractor API shapes.
+    function normalize(json) {
+      if (!json) return null;
+
+      if (Array.isArray(json['\u{1F4E6} Extracted Info'])) {
+        const first = json['\u{1F4E6} Extracted Info'][0] || {};
+        return {
+          name: first['\u{1F4DC} Title'] || first.title || first.name,
+          size: first['\u{1F4CF} Size'] || first.size,
+          direct: first['\u{1F517} Direct Download Link'] || first.direct_link || first.dlink,
+          thumb: first['\u{1F5BC}️ Thumbnails']?.['360x270']
+              || first['\u{1F5BC}️ Thumbnails']?.['140x90']
+              || first.thumbnail
+              || first.thumb,
+        };
+      }
+
+      const list = json.list || json.files || json.data || (json.result && json.result.list);
+      if (Array.isArray(list) && list.length) {
+        const f = list[0];
+        return {
+          name: f.server_filename || f.filename || f.name || f.title,
+          size: f.size,
+          direct: f.dlink || f.direct_link || f.download_url || f.url,
+          thumb: f.thumbs?.url3 || f.thumbs?.url2 || f.thumbs?.url1 || f.thumbnail,
+        };
+      }
+
+      if (json.direct_link || json.dlink || json.download_url) {
+        return {
+          name: json.file_name || json.filename || json.name,
+          size: json.size,
+          direct: json.direct_link || json.dlink || json.download_url,
+          thumb: json.thumb || json.thumbnail,
+        };
+      }
+
+      return null;
+    }
+
+    async function resolveLink(shareUrl) {
+      const base = (els.apiInput.value || DEFAULT_API).trim().replace(/\/+$/, '');
+      const variants = [
+        base + '?url=' + encodeURIComponent(shareUrl),
+        base + '/?url=' + encodeURIComponent(shareUrl),
+        base + '?link=' + encodeURIComponent(shareUrl),
+      ];
+
+      let lastErr;
+      for (const url of variants) {
+        try {
+          const res = await fetch(url, { method: 'GET', headers: { 'Accept': 'application/json' } });
+          if (!res.ok) { lastErr = new Error('HTTP ' + res.status); continue; }
+          const json = await res.json();
+          const info = normalize(json);
+          if (info && info.direct) return info;
+          lastErr = new Error('Extractor returned no direct link');
+        } catch (e) {
+          lastErr = e;
         }
-      });
+      }
+      throw lastErr || new Error('Unable to resolve link');
+    }
+
+    function render(info) {
+      hideResult();
+      els.result.classList.add('show');
+
+      els.fileName.textContent = info.name || 'Unknown file';
+      const parts = [];
+      if (info.size) {
+        const asNumber = Number(info.size);
+        parts.push(Number.isFinite(asNumber) && String(info.size).match(/^\d+$/) ? humanSize(asNumber) : info.size);
+      }
+      const e = extOf(info.name || '');
+      if (e) parts.push(e.toUpperCase());
+      els.fileMeta.textContent = parts.join('  ·  ') || '';
+
+      if (info.thumb) {
+        els.thumb.innerHTML = '';
+        const img = new Image();
+        img.src = info.thumb;
+        img.onerror = () => { els.thumb.textContent = iconFor(info.name); };
+        els.thumb.appendChild(img);
+      } else {
+        els.thumb.textContent = iconFor(info.name);
+      }
+
+      els.downloadBtn.href = info.direct;
+      els.downloadBtn.setAttribute('download', info.name || '');
+      els.openDirectBtn.href = info.direct;
+
+      const kind = kindOf(info.name);
+      els.playBtn.style.display = (kind === 'video' || kind === 'audio' || kind === 'image') ? '' : 'none';
+      els.playBtn.dataset.kind = kind;
+      els.playBtn.dataset.src = info.direct;
+    }
+
+    function play() {
+      const src = els.playBtn.dataset.src;
+      const kind = els.playBtn.dataset.kind;
+      if (!src) return;
+      els.playerWrap.innerHTML = '';
+      let node;
+      if (kind === 'video') {
+        node = document.createElement('video');
+        node.controls = true;
+        node.playsInline = true;
+        node.src = src;
+      } else if (kind === 'audio') {
+        node = document.createElement('audio');
+        node.controls = true;
+        node.src = src;
+      } else if (kind === 'image') {
+        node = document.createElement('img');
+        node.src = src;
+        node.style.width = '100%';
+        node.style.display = 'block';
+      }
+      if (node) {
+        els.playerWrap.appendChild(node);
+        els.playerWrap.classList.add('show');
+        if (node.play) node.play().catch(() => {});
+        els.playerWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    async function onOpen() {
+      const raw = els.input.value.trim();
+      hideResult();
+      clearStatus();
+
+      if (!raw) { setStatus('error', 'Paste a link first.'); return; }
+      if (!isTeraboxUrl(raw)) {
+        setStatus('error', "That doesn't look like a Terabox link.");
+        return;
+      }
+
+      els.openBtn.disabled = true;
+      setStatus('loading', 'Resolving...');
+      try {
+        const info = await resolveLink(raw);
+        clearStatus();
+        render(info);
+      } catch (err) {
+        setStatus('error', 'Could not resolve: ' + (err?.message || 'unknown error') +
+          '. Try a different extractor API in Settings.');
+      } finally {
+        els.openBtn.disabled = false;
+      }
+    }
+
+    els.openBtn.addEventListener('click', onOpen);
+    els.input.addEventListener('keydown', (e) => { if (e.key === 'Enter') onOpen(); });
+
+    els.pasteBtn.addEventListener('click', async () => {
+      try {
+        const text = await navigator.clipboard.readText();
+        if (text) {
+          els.input.value = text.trim();
+          onOpen();
+        }
+      } catch {
+        els.input.focus();
+      }
     });
+
+    els.playBtn.addEventListener('click', play);
+
+    els.copyBtn.addEventListener('click', async () => {
+      const url = els.downloadBtn.href;
+      if (!url || url === '#') return;
+      try {
+        await navigator.clipboard.writeText(url);
+        const original = els.copyBtn.textContent;
+        els.copyBtn.textContent = 'Copied';
+        setTimeout(() => { els.copyBtn.textContent = original; }, 1200);
+      } catch {}
+    });
+
+    els.saveApiBtn.addEventListener('click', () => {
+      const v = els.apiInput.value.trim();
+      if (v) localStorage.setItem('terabox-api', v);
+      else localStorage.removeItem('terabox-api');
+      const original = els.saveApiBtn.textContent;
+      els.saveApiBtn.textContent = 'Saved';
+      setTimeout(() => { els.saveApiBtn.textContent = original; }, 1000);
+    });
+
+    els.resetApiBtn.addEventListener('click', () => {
+      els.apiInput.value = DEFAULT_API;
+      localStorage.removeItem('terabox-api');
+    });
+
+    // Auto-run if a ?url= param is present
+    const params = new URLSearchParams(location.search);
+    const preset = params.get('url') || params.get('link');
+    if (preset) {
+      els.input.value = preset;
+      onOpen();
+    }
   </script>
 </body>
 </html>
