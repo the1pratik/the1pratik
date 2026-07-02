@@ -1,50 +1,53 @@
 # robots.txt — advpranavgarg.com
-# Search engines: full access
+# This site is private. It should NOT be indexed or ingested.
+#
+# Search engines are allowed to crawl only so they can read the page-level
+# "noindex" directive (in the HTML head and the X-Robots-Tag header) and drop
+# the URL from their index. A blanket "Disallow: /" would prevent them from
+# ever seeing that directive, so it is intentionally not used here.
 User-agent: *
 Allow: /
 
-# AI / answer-engine crawlers — explicitly welcomed so this site can be
-# cited in ChatGPT, Claude, Perplexity, Gemini and Google AI Overviews.
+# AI / answer-engine crawlers — fully disallowed so the site is not ingested
+# into ChatGPT, Claude, Perplexity, Gemini, Google AI Overviews, etc.
 User-agent: GPTBot
-Allow: /
+Disallow: /
 
 User-agent: OAI-SearchBot
-Allow: /
+Disallow: /
 
 User-agent: ChatGPT-User
-Allow: /
+Disallow: /
 
 User-agent: ClaudeBot
-Allow: /
+Disallow: /
 
 User-agent: Claude-Web
-Allow: /
+Disallow: /
 
 User-agent: anthropic-ai
-Allow: /
+Disallow: /
 
 User-agent: PerplexityBot
-Allow: /
+Disallow: /
 
 User-agent: Perplexity-User
-Allow: /
+Disallow: /
 
 User-agent: Google-Extended
-Allow: /
-
-User-agent: Applebot
-Allow: /
+Disallow: /
 
 User-agent: Applebot-Extended
-Allow: /
-
-User-agent: Bingbot
-Allow: /
+Disallow: /
 
 User-agent: cohere-ai
-Allow: /
+Disallow: /
 
 User-agent: Meta-ExternalAgent
-Allow: /
+Disallow: /
 
-Sitemap: https://advpranavgarg.com/sitemap.xml
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
