@@ -8,10 +8,10 @@
   <meta property="og:title" content="Pranav Garg — External Legal Counsel for Agencies">
   <meta property="og:description" content="On-call legal support for agencies on a fixed monthly retainer. Contracts reviewed in 48 hours, disputes caught while they're still cheap.">
   <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%2314263c'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23b08d3e' text-anchor='middle'%3EPG%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23f7f5ef'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='36' fill='%231b1a17' text-anchor='middle'%3EPG%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -20,776 +20,640 @@
     "description": "External legal counsel for agencies — marketing, PR, influencer, ORM and event businesses. Fixed monthly retainer.",
     "telephone": "+917404692704",
     "email": "pranav.nlus@gmail.com",
-    "url": "https://the1pratik.github.io/the1pratik/",
     "address": { "@type": "PostalAddress", "addressLocality": "New Delhi", "addressCountry": "IN" },
     "sameAs": ["https://www.linkedin.com/in/pranavgargdbranlu"]
   }
   </script>
   <style>
     :root {
-      --navy: #14263c;
-      --navy-soft: #1e3450;
-      --ink: #24303d;
-      --body: #45525f;
-      --muted: #6e7a86;
-      --gold: #a8842c;
-      --gold-bright: #c29a3b;
-      --gold-pale: #e9ddc2;
-      --cream: #fdfbf6;
-      --cream-alt: #f6f1e7;
-      --line: #e5ddcc;
-      --white: #ffffff;
-      --shadow: 0 10px 30px rgba(20, 38, 60, 0.08);
-      --serif-display: 'Cormorant Garamond', Georgia, serif;
-      --serif-body: 'Lora', Georgia, serif;
+      --paper: #f7f5ef;
+      --ink: #1b1a17;
+      --ink-soft: #44423c;
+      --faint: #807d73;
+      --rule: #c9c5b6;
+      --rule-dark: #1b1a17;
+      --accent: #8a2a1d;
+      --serif: 'Libre Caslon Text', 'Caslon', Georgia, serif;
+      --mono: 'IBM Plex Mono', 'Courier New', monospace;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    ::selection { background: var(--ink); color: var(--paper); }
 
     body {
-      font-family: var(--serif-body);
+      font-family: var(--serif);
       font-size: 17px;
-      line-height: 1.7;
-      color: var(--body);
-      background: var(--cream);
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--paper);
       -webkit-font-smoothing: antialiased;
     }
 
-    h1, h2, h3, h4 { font-family: var(--serif-display); color: var(--navy); font-weight: 600; line-height: 1.15; }
+    .sheet { max-width: 1060px; margin: 0 auto; padding: 0 28px; }
 
-    a { color: var(--gold); text-decoration: none; transition: color .2s; }
-    a:hover { color: var(--gold-bright); }
+    a { color: inherit; text-decoration: none; }
+    p a, .body-link {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: var(--faint);
+    }
+    p a:hover, .body-link:hover { color: var(--accent); text-decoration-color: var(--accent); }
 
-    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-
-    /* ---------- Labels & headings ---------- */
-    .eyebrow {
-      display: block;
-      font-family: var(--serif-body);
+    .mono {
+      font-family: var(--mono);
       font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 3px;
+      letter-spacing: .08em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 14px;
     }
 
-    .section-title { font-size: clamp(30px, 4.5vw, 42px); margin-bottom: 18px; }
-
-    .section-lede { max-width: 640px; font-size: 18px; color: var(--body); }
-
-    section { padding: 88px 0; }
-
-    /* ---------- Reveal animation ---------- */
-    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .reveal { opacity: 1; transform: none; transition: none; }
+    /* ---------- Letterhead ---------- */
+    .letterhead { padding: 30px 0 0; }
+    .letterhead-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      flex-wrap: wrap; gap: 6px 24px;
+      padding-bottom: 16px;
     }
+    .letterhead .name { font-size: 21px; letter-spacing: .01em; }
+    .letterhead .name em { font-style: italic; }
+    .letterhead .cred { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+    .double-rule { border-top: 2px solid var(--rule-dark); border-bottom: 1px solid var(--rule-dark); height: 5px; }
 
-    /* ---------- Nav ---------- */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(253, 251, 246, 0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid transparent;
-      transition: border-color .3s, box-shadow .3s;
+    .toc {
+      display: flex; flex-wrap: wrap; gap: 4px 26px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--rule);
+      font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--ink-soft);
     }
-    .nav.scrolled { border-bottom-color: var(--line); box-shadow: 0 4px 20px rgba(20,38,60,.05); }
-    .nav-inner {
-      max-width: 1080px; margin: 0 auto; padding: 0 24px;
-      height: 68px; display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-brand { font-family: var(--serif-display); font-size: 22px; font-weight: 700; color: var(--navy); letter-spacing: .5px; }
-    .nav-brand .dot { color: var(--gold); }
-    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
-    .nav-links a { font-size: 13.5px; font-weight: 500; letter-spacing: .8px; text-transform: uppercase; color: var(--ink); }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-cta {
-      background: var(--navy); color: var(--white) !important;
-      padding: 10px 20px; border-radius: 3px;
-      transition: background .2s;
-    }
-    .nav-cta:hover { background: var(--navy-soft); }
-    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--navy); margin: 5px 0; transition: .3s; }
-
-    @media (max-width: 860px) {
-      .nav-toggle { display: block; }
-      .nav-links {
-        position: absolute; top: 68px; left: 0; right: 0;
-        flex-direction: column; gap: 0;
-        background: var(--cream); border-bottom: 1px solid var(--line);
-        max-height: 0; overflow: hidden; transition: max-height .35s ease;
-      }
-      .nav-links.open { max-height: 480px; }
-      .nav-links li { width: 100%; text-align: center; }
-      .nav-links a { display: block; padding: 15px 24px; }
-      .nav-cta { border-radius: 0; }
-    }
+    .toc a:hover { color: var(--accent); }
+    .toc .push { margin-left: auto; color: var(--accent); }
 
     /* ---------- Hero ---------- */
-    .hero {
-      padding: 170px 0 96px;
-      background:
-        radial-gradient(1100px 500px at 85% -10%, rgba(168, 132, 44, 0.09), transparent 60%),
-        var(--cream);
-      border-bottom: 1px solid var(--line);
-    }
-    .hero-kicker {
-      font-size: 13px; letter-spacing: 4px; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 22px;
-    }
-    .hero-kicker .sep { color: var(--gold); margin: 0 10px; }
+    .hero { padding: 76px 0 64px; border-bottom: 1px solid var(--rule-dark); }
+    .hero .matter { color: var(--accent); margin-bottom: 34px; }
     .hero h1 {
-      font-size: clamp(40px, 6.5vw, 66px);
-      font-weight: 600;
-      max-width: 780px;
-      margin-bottom: 24px;
+      font-weight: 400;
+      font-size: clamp(38px, 6.2vw, 72px);
+      line-height: 1.06;
+      letter-spacing: -0.01em;
+      max-width: 850px;
+      margin-bottom: 30px;
     }
-    .hero h1 em { font-style: italic; color: var(--gold); }
-    .hero-sub { font-size: 20px; max-width: 620px; margin-bottom: 36px; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 30px; }
-
+    .hero h1 em { font-style: italic; }
+    .hero .standfirst {
+      font-size: 20px; line-height: 1.6; max-width: 560px; color: var(--ink-soft);
+      margin-bottom: 40px;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 56px; }
     .btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-family: var(--serif-body); font-size: 15px; font-weight: 600;
-      padding: 15px 28px; border-radius: 3px; cursor: pointer;
-      transition: transform .15s, background .2s, box-shadow .2s;
+      display: inline-block;
+      font-family: var(--mono); font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase;
+      padding: 14px 22px;
+      border: 1px solid var(--ink);
+      transition: background .15s, color .15s;
     }
-    .btn:active { transform: translateY(1px); }
-    .btn-primary { background: var(--navy); color: var(--white); box-shadow: var(--shadow); }
-    .btn-primary:hover { background: var(--navy-soft); color: var(--white); }
-    .btn-gold { background: var(--gold); color: var(--white); box-shadow: var(--shadow); }
-    .btn-gold:hover { background: var(--gold-bright); color: var(--white); }
-    .btn-outline { border: 1px solid var(--navy); color: var(--navy); background: transparent; }
-    .btn-outline:hover { background: var(--navy); color: var(--white); }
-    .btn svg { flex: none; }
+    .btn:hover { background: var(--ink); color: var(--paper); }
+    .btn-solid { background: var(--ink); color: var(--paper); }
+    .btn-solid:hover { background: var(--accent); border-color: var(--accent); }
 
-    .hero-bar {
-      font-size: 14.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center;
+    .facts { display: flex; flex-wrap: wrap; border-top: 1px solid var(--rule-dark); }
+    .fact {
+      flex: 1 1 200px;
+      padding: 18px 24px 4px 0;
+      border-right: 1px solid var(--rule);
     }
-    .hero-bar .sep { color: var(--gold); }
-
-    .hero-stats {
-      margin-top: 64px;
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
-      background: var(--line); border: 1px solid var(--line); border-radius: 4px; overflow: hidden;
-    }
-    .stat { background: var(--white); padding: 28px 26px; }
-    .stat b {
-      display: block; font-family: var(--serif-display); font-weight: 600;
-      font-size: 34px; color: var(--navy); line-height: 1.1; margin-bottom: 6px;
-    }
-    .stat span { font-size: 14px; color: var(--muted); }
-    @media (max-width: 720px) { .hero-stats { grid-template-columns: 1fr; } }
-
-    /* ---------- Profile ---------- */
-    .profile-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: start; }
-    @media (max-width: 860px) { .profile-grid { grid-template-columns: 1fr; } }
-    .profile-grid p { margin-bottom: 18px; }
-    .profile-grid p:last-child { margin-bottom: 0; }
-    .lead { font-family: var(--serif-display); font-size: 24px; line-height: 1.45; color: var(--ink); }
-
-    .cred-card {
-      background: var(--white); border: 1px solid var(--line); border-radius: 4px;
-      padding: 30px 30px 26px; box-shadow: var(--shadow);
-    }
-    .cred-card h3 { font-size: 14px; font-family: var(--serif-body); font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
-    .cred-card ul { list-style: none; }
-    .cred-card li {
-      position: relative; padding: 10px 0 10px 26px; font-size: 15.5px;
-      border-bottom: 1px solid #f0ead9;
-    }
-    .cred-card li:last-child { border-bottom: none; }
-    .cred-card li::before {
-      content: ""; position: absolute; left: 2px; top: 19px;
-      width: 10px; height: 2px; background: var(--gold);
+    .fact:last-child { border-right: none; }
+    .fact b { display: block; font-weight: 400; font-size: 30px; line-height: 1.2; }
+    .fact span { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
+    @media (max-width: 700px) {
+      .fact { flex-basis: 100%; border-right: none; border-bottom: 1px solid var(--rule); padding: 14px 0 12px; }
+      .fact:last-child { border-bottom: none; }
     }
 
-    /* ---------- Problem ---------- */
-    .section-alt { background: var(--cream-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .cards-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 46px; }
-    @media (max-width: 860px) { .cards-3 { grid-template-columns: 1fr; } }
-    .card {
-      background: var(--white); border: 1px solid var(--line); border-radius: 4px;
-      padding: 32px 28px; box-shadow: var(--shadow);
-      transition: transform .25s, box-shadow .25s;
+    /* ---------- Clause sections ---------- */
+    .clause { padding: 72px 0; border-bottom: 1px solid var(--rule-dark); }
+    .clause-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 30px 60px;
+      align-items: start;
     }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(20,38,60,.12); }
-    .card .num {
-      font-family: var(--serif-display); font-size: 15px; font-weight: 600;
-      color: var(--gold); letter-spacing: 2px; margin-bottom: 14px; display: block;
+    @media (max-width: 780px) { .clause-grid { grid-template-columns: 1fr; gap: 22px; } }
+    .clause-marker { position: sticky; top: 28px; }
+    @media (max-width: 780px) { .clause-marker { position: static; } }
+    .clause-marker .num {
+      font-family: var(--mono); font-size: 13px; letter-spacing: .08em;
+      color: var(--accent); display: block; margin-bottom: 6px;
     }
-    .card h3 { font-size: 22px; margin-bottom: 12px; }
-    .card p { font-size: 15.5px; }
+    .clause-marker .label { font-style: italic; font-size: 17px; color: var(--ink-soft); }
 
-    .flip-note {
-      margin-top: 46px; padding: 30px 36px;
-      background: var(--navy); border-radius: 4px;
-      color: #e8e2d4;
-      font-family: var(--serif-display); font-size: clamp(20px, 2.6vw, 25px); line-height: 1.5;
-      position: relative;
+    .clause h2 {
+      font-weight: 400;
+      font-size: clamp(27px, 3.6vw, 38px);
+      line-height: 1.2;
+      margin-bottom: 26px;
+      max-width: 640px;
     }
-    .flip-note::before {
-      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
-      background: var(--gold); border-radius: 4px 0 0 4px;
+    .clause h2 em { font-style: italic; }
+    .clause .body { max-width: 620px; }
+    .clause .body p { margin-bottom: 18px; color: var(--ink-soft); }
+    .clause .body p strong { color: var(--ink); font-weight: 700; }
+    .clause .body p:last-child { margin-bottom: 0; }
+    .drop::first-letter {
+      font-size: 3.4em; float: left; line-height: .85;
+      padding: 4px 10px 0 0;
     }
-    .flip-note b { color: var(--gold-bright); font-weight: 600; }
 
-    /* ---------- Services ---------- */
-    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 46px; }
-    @media (max-width: 1000px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 600px) { .services-grid { grid-template-columns: 1fr; } }
-    .service {
-      background: var(--white); border: 1px solid var(--line); border-radius: 4px;
-      padding: 26px 24px;
-      transition: border-color .25s, transform .25s;
+    /* Ruled definition rows */
+    .rows { border-top: 1px solid var(--rule-dark); margin-top: 8px; }
+    .row {
+      display: grid; grid-template-columns: 240px 1fr; gap: 8px 40px;
+      padding: 16px 0; border-bottom: 1px solid var(--rule);
     }
-    .service:hover { border-color: var(--gold); transform: translateY(-3px); }
-    .service .glyph { width: 34px; height: 34px; margin-bottom: 16px; color: var(--gold); }
-    .service h3 { font-size: 20px; margin-bottom: 8px; }
-    .service p { font-size: 14.5px; color: var(--muted); }
+    @media (max-width: 640px) { .row { grid-template-columns: 1fr; padding: 14px 0; } }
+    .row dt { font-size: 17px; }
+    .row dd { color: var(--ink-soft); font-size: 15.5px; }
 
-    /* ---------- Retainer ---------- */
-    .retainer-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 48px; margin-top: 46px; align-items: start; }
-    @media (max-width: 900px) { .retainer-grid { grid-template-columns: 1fr; } }
-
-    .step { display: flex; gap: 22px; padding: 26px 0; border-bottom: 1px solid var(--line); }
-    .step:first-child { padding-top: 0; }
-    .step:last-child { border-bottom: none; }
-    .step-num {
-      flex: none; width: 52px; height: 52px; border-radius: 50%;
-      border: 1px solid var(--gold);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--serif-display); font-size: 24px; font-weight: 600; color: var(--gold);
+    /* numbered problem list */
+    .problems { counter-reset: prob; border-top: 1px solid var(--rule-dark); }
+    .problem {
+      counter-increment: prob;
+      display: grid; grid-template-columns: 56px 1fr; gap: 0 24px;
+      padding: 22px 0; border-bottom: 1px solid var(--rule);
     }
-    .step h3 { font-size: 22px; margin-bottom: 8px; }
-    .step p { font-size: 15.5px; }
-
-    .plan-card {
-      background: var(--navy); color: #cfd6dd; border-radius: 4px;
-      padding: 36px 34px; box-shadow: 0 20px 50px rgba(20,38,60,.25);
-      position: sticky; top: 96px;
+    .problem::before {
+      content: counter(prob, decimal-leading-zero);
+      font-family: var(--mono); font-size: 13px; color: var(--accent);
+      padding-top: 5px;
     }
-    .plan-card h3 { color: var(--gold-bright); font-family: var(--serif-body); font-size: 13px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 20px; }
-    .plan-card ul { list-style: none; margin-bottom: 26px; }
-    .plan-card li { padding: 9px 0 9px 30px; position: relative; font-size: 15.5px; border-bottom: 1px solid rgba(255,255,255,.08); }
-    .plan-card li:last-child { border-bottom: none; }
-    .plan-card li::before {
-      content: "✓"; position: absolute; left: 2px; top: 8px;
-      color: var(--gold-bright); font-size: 15px;
+    .problem h3 { font-weight: 400; font-style: italic; font-size: 21px; margin-bottom: 6px; }
+    .problem p { color: var(--ink-soft); font-size: 15.5px; }
+
+    .holding {
+      margin-top: 34px;
+      padding: 22px 0 0;
+      border-top: 2px solid var(--ink);
+      font-size: 21px; line-height: 1.55;
+      max-width: 620px;
     }
-    .plan-price { font-family: var(--serif-display); color: var(--white); font-size: 21px; line-height: 1.4; margin-bottom: 22px; }
-    .plan-price b { font-size: 34px; color: var(--gold-bright); font-weight: 600; }
-    .plan-price small { display: block; font-family: var(--serif-body); font-size: 13.5px; color: #9aa7b4; margin-top: 6px; }
-    .plan-card .btn { width: 100%; justify-content: center; }
+    .holding .mono-tag { display: block; margin-bottom: 10px; color: var(--accent); }
+    .holding em { font-style: italic; }
 
-    /* ---------- Clients ---------- */
-    .clients-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 46px; }
-    @media (max-width: 720px) { .clients-grid { grid-template-columns: 1fr; } }
-    .client { background: var(--white); border: 1px solid var(--line); border-radius: 4px; padding: 30px 28px; }
-    .client h3 { font-size: 21px; margin-bottom: 10px; }
-    .client p { font-size: 15px; color: var(--muted); }
-    .confidential-note {
-      margin-top: 30px; font-size: 14px; font-style: italic; color: var(--muted);
-      display: flex; gap: 10px; align-items: baseline;
+    /* Retainer steps */
+    .steps { border-top: 1px solid var(--rule-dark); counter-reset: step; }
+    .step {
+      counter-increment: step;
+      display: grid; grid-template-columns: 56px 1fr; gap: 0 24px;
+      padding: 24px 0; border-bottom: 1px solid var(--rule);
     }
-    .confidential-note::before { content: "§"; color: var(--gold); font-style: normal; }
-
-    /* ---------- Case studies ---------- */
-    .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 46px; }
-    @media (max-width: 960px) { .cases-grid { grid-template-columns: 1fr; } }
-    .case {
-      background: var(--white); border: 1px solid var(--line); border-radius: 4px;
-      overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow);
+    .step::before {
+      content: "§" counter(step);
+      font-family: var(--mono); font-size: 13px; color: var(--accent); padding-top: 5px;
     }
-    .case-head { background: var(--navy); padding: 22px 26px; }
-    .case-head .tag { font-size: 11.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-bright); display: block; margin-bottom: 8px; }
-    .case-head h3 { color: var(--white); font-size: 22px; }
-    .case-body { padding: 24px 26px 28px; display: flex; flex-direction: column; gap: 16px; }
-    .case-body h4 { font-family: var(--serif-body); font-size: 11.5px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
-    .case-body p { font-size: 14.5px; }
+    .step h3 { font-weight: 400; font-size: 22px; margin-bottom: 6px; }
+    .step p { color: var(--ink-soft); font-size: 15.5px; max-width: 540px; }
 
-    /* ---------- Litigation ---------- */
-    .dark-section { background: var(--navy); color: #c3ccd6; border: none; }
-    .dark-section .section-title { color: var(--white); }
-    .dark-section .section-lede { color: #aeb9c5; }
-    .dark-section .eyebrow { color: var(--gold-bright); }
-    .forums-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 46px; }
-    @media (max-width: 720px) { .forums-grid { grid-template-columns: 1fr; } }
-    .forum {
-      border: 1px solid rgba(255,255,255,.14); border-radius: 4px; padding: 30px 28px;
-      transition: border-color .25s, background .25s;
+    .schedule {
+      margin-top: 40px;
+      border: 1px solid var(--ink);
     }
-    .forum:hover { border-color: var(--gold-bright); background: rgba(255,255,255,.03); }
-    .forum h3 { color: var(--white); font-size: 22px; margin-bottom: 10px; }
-    .forum p { font-size: 15px; color: #aeb9c5; }
-    .dark-note { margin-top: 34px; font-size: 14px; font-style: italic; color: #8d99a6; }
-
-    /* ---------- CV ---------- */
-    .cv-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 56px; margin-top: 46px; align-items: start; }
-    @media (max-width: 900px) { .cv-grid { grid-template-columns: 1fr; } }
-    .timeline { position: relative; padding-left: 34px; }
-    .timeline::before { content: ""; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 1px; background: var(--line); }
-    .tl-item { position: relative; padding-bottom: 34px; }
-    .tl-item:last-child { padding-bottom: 0; }
-    .tl-item::before {
-      content: ""; position: absolute; left: -30px; top: 7px;
-      width: 9px; height: 9px; border-radius: 50%;
-      background: var(--gold); box-shadow: 0 0 0 4px var(--cream);
+    .schedule-head {
+      padding: 12px 20px; border-bottom: 1px solid var(--ink);
+      font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px;
     }
-    .tl-item .when { font-size: 12.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; margin-bottom: 4px; }
-    .tl-item h3 { font-size: 21px; margin-bottom: 4px; }
-    .tl-item p { font-size: 15px; color: var(--muted); }
-
-    .also-card { background: var(--white); border: 1px solid var(--line); border-radius: 4px; padding: 30px 30px 26px; }
-    .also-card h3 { font-family: var(--serif-body); font-size: 13px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
-    .also-card ul { list-style: none; }
-    .also-card li { position: relative; padding: 9px 0 9px 26px; font-size: 15px; border-bottom: 1px solid #f0ead9; }
-    .also-card li:last-child { border-bottom: none; }
-    .also-card li::before { content: ""; position: absolute; left: 2px; top: 18px; width: 10px; height: 2px; background: var(--gold); }
-    .also-card .cv-note { font-size: 13.5px; font-style: italic; color: var(--muted); margin-top: 16px; }
-
-    /* ---------- Contact ---------- */
-    .contact { text-align: center; padding: 110px 0; }
-    .contact .section-title { font-size: clamp(34px, 5vw, 52px); max-width: 720px; margin-left: auto; margin-right: auto; }
-    .contact .section-lede { margin: 0 auto 42px; }
-    .contact-actions { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 46px; }
-    .contact-details { display: flex; flex-wrap: wrap; gap: 12px 30px; justify-content: center; font-size: 15.5px; color: var(--muted); }
-    .contact-details a { color: var(--ink); font-weight: 500; }
-    .contact-details a:hover { color: var(--gold); }
-    .contact-details .sep { color: var(--gold); }
-
-    /* ---------- Footer ---------- */
-    footer { background: var(--navy); color: #8d99a6; padding: 34px 0; font-size: 14px; }
-    .footer-inner { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; align-items: center; }
-    footer .brand { font-family: var(--serif-display); font-size: 18px; color: var(--white); }
-    footer .brand .dot { color: var(--gold-bright); }
-    footer a { color: #b5bfc9; }
-    footer a:hover { color: var(--gold-bright); }
-
-    /* ---------- WhatsApp float ---------- */
-    .wa-float {
-      position: fixed; right: 22px; bottom: 22px; z-index: 90;
-      width: 56px; height: 56px; border-radius: 50%;
-      background: #25d366; color: #fff;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 8px 24px rgba(0,0,0,.25);
-      transition: transform .2s;
+    .schedule-head .ref { color: var(--accent); }
+    .schedule ul { list-style: none; padding: 8px 20px; }
+    .schedule li {
+      padding: 10px 0; border-bottom: 1px solid var(--rule);
+      display: flex; justify-content: space-between; gap: 20px; font-size: 16px;
     }
-    .wa-float:hover { transform: scale(1.08); color: #fff; }
+    .schedule li:last-child { border-bottom: none; }
+    .schedule li .incl { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--faint); text-transform: uppercase; white-space: nowrap; padding-top: 5px; }
+    .schedule-foot {
+      padding: 16px 20px; border-top: 1px solid var(--ink);
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;
+    }
+    .schedule-foot .price { font-size: 21px; }
+    .schedule-foot .price small { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); margin-top: 4px; }
+
+    /* Case studies */
+    .matter-item { border-top: 1px solid var(--rule-dark); padding: 26px 0; }
+    .matter-item:last-of-type { border-bottom: 1px solid var(--rule); }
+    .matter-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px 24px; margin-bottom: 16px; }
+    .matter-head h3 { font-weight: 400; font-style: italic; font-size: 23px; }
+    .matter-head .venue { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
+    .sao { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    @media (max-width: 760px) { .sao { grid-template-columns: 1fr; gap: 14px; } }
+    .sao h4 {
+      font-family: var(--mono); font-weight: 500; font-size: 11px; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
+    }
+    .sao p { font-size: 15px; color: var(--ink-soft); }
+
+    .aside-note { margin-top: 26px; font-style: italic; font-size: 14.5px; color: var(--faint); }
+
+    /* Forums */
+    .forum-row {
+      display: grid; grid-template-columns: 280px 1fr; gap: 8px 40px;
+      padding: 20px 0; border-bottom: 1px solid var(--rule);
+    }
+    .forum-row:first-of-type { border-top: 1px solid var(--rule-dark); }
+    @media (max-width: 640px) { .forum-row { grid-template-columns: 1fr; } }
+    .forum-row h3 { font-weight: 400; font-size: 20px; }
+    .forum-row p { color: var(--ink-soft); font-size: 15.5px; }
+
+    /* CV */
+    .cv-row {
+      display: grid; grid-template-columns: 150px 1fr; gap: 4px 40px;
+      padding: 18px 0; border-bottom: 1px solid var(--rule);
+    }
+    .cv-row:first-of-type { border-top: 1px solid var(--rule-dark); }
+    @media (max-width: 640px) { .cv-row { grid-template-columns: 1fr; } }
+    .cv-row .when { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; color: var(--accent); padding-top: 5px; }
+    .cv-row h3 { font-weight: 400; font-size: 20px; }
+    .cv-row p { color: var(--ink-soft); font-size: 15px; }
+    .cv-also { margin-top: 30px; }
+    .cv-also .mono-tag { color: var(--accent); display: block; margin-bottom: 10px; }
+    .cv-also ul { list-style: none; }
+    .cv-also li {
+      padding: 8px 0 8px 22px; position: relative;
+      color: var(--ink-soft); font-size: 15.5px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .cv-also li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+
+    /* Contact */
+    .contact { padding: 90px 0 70px; }
+    .contact .matter { color: var(--accent); margin-bottom: 26px; }
+    .contact h2 {
+      font-weight: 400; font-size: clamp(32px, 5vw, 54px); line-height: 1.12;
+      max-width: 760px; margin-bottom: 24px;
+    }
+    .contact h2 em { font-style: italic; }
+    .contact .body { max-width: 580px; color: var(--ink-soft); font-size: 18px; margin-bottom: 40px; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 54px; }
+
+    .contact-rows { border-top: 1px solid var(--rule-dark); max-width: 640px; }
+    .contact-row {
+      display: grid; grid-template-columns: 150px 1fr; gap: 4px 40px;
+      padding: 13px 0; border-bottom: 1px solid var(--rule);
+    }
+    @media (max-width: 560px) { .contact-row { grid-template-columns: 1fr; } }
+    .contact-row .k { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); padding-top: 5px; }
+    .contact-row .v { font-size: 17px; }
+    .contact-row .v a:hover { color: var(--accent); }
+
+    /* Footer */
+    .colophon { border-top: 2px solid var(--ink); }
+    .colophon-inner {
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 30px;
+      padding: 20px 0 44px;
+      font-family: var(--mono); font-size: 11px; letter-spacing: .07em; text-transform: uppercase;
+      color: var(--faint);
+    }
+    .colophon a:hover { color: var(--accent); }
   </style>
-  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body>
 
-  <!-- ============ NAV ============ -->
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="#top" class="nav-brand">Pranav Garg<span class="dot">.</span></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#profile">Profile</a></li>
-        <li><a href="#services">What I Handle</a></li>
-        <li><a href="#retainer">Retainer</a></li>
-        <li><a href="#work">Selected Work</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact" class="nav-cta">Free Contract Audit</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- ============ HERO ============ -->
-  <header class="hero" id="top">
-    <div class="container">
-      <p class="hero-kicker reveal">Advocate <span class="sep">·</span> New Delhi</p>
-      <h1 class="reveal">External Legal Counsel <em>for Agencies</em></h1>
-      <p class="hero-sub reveal">On-call legal support for marketing, PR, influencer, ORM and event businesses — without the law-firm overhead.</p>
-      <div class="hero-actions reveal">
-        <a class="btn btn-gold" href="https://wa.me/917404692704?text=Hi%20Pranav%2C%20I%27d%20like%20to%20start%20with%20the%20free%20contract%20audit." target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2-1.42.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.58-.35zM12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.85 9.85 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.87-9.9 9.87zm8.42-18.29A11.8 11.8 0 0 0 12.04 0C5.46 0 .1 5.35.1 11.92c0 2.1.55 4.15 1.6 5.96L0 24l6.27-1.64a11.94 11.94 0 0 0 5.77 1.47h.01c6.58 0 11.94-5.35 11.94-11.93 0-3.18-1.24-6.18-3.52-8.4z"/></svg>
-          WhatsApp Me
-        </a>
-        <a class="btn btn-outline" href="#retainer">How the Retainer Works</a>
+  <!-- ======== LETTERHEAD ======== -->
+  <header class="letterhead">
+    <div class="sheet">
+      <div class="letterhead-row">
+        <span class="name">Pranav <em>Garg</em></span>
+        <span class="cred">Advocate · Bar Council of Delhi · D/8794/2024</span>
       </div>
-      <p class="hero-bar reveal">
-        +91 74046 92704 <span class="sep">·</span>
-        pranav.nlus@gmail.com <span class="sep">·</span>
-        Bar Council of Delhi (D/8794/2024)
-      </p>
-
-      <div class="hero-stats reveal">
-        <div class="stat"><b>4</b><span>agency sectors served on retainer</span></div>
-        <div class="stat"><b>48h</b><span>standard contract turnaround</span></div>
-        <div class="stat"><b>SC → Tribunals</b><span>dispute experience across forums</span></div>
-      </div>
+      <div class="double-rule"></div>
+      <nav class="toc" aria-label="Contents">
+        <a href="#profile">Profile</a>
+        <a href="#problem">The Problem</a>
+        <a href="#scope">Scope</a>
+        <a href="#retainer">Retainer</a>
+        <a href="#matters">Matters</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact" class="push">Free Contract Audit ↗</a>
+      </nav>
     </div>
   </header>
 
-  <!-- ============ PROFILE ============ -->
-  <section id="profile">
-    <div class="container">
-      <span class="eyebrow reveal">Profile</span>
-      <h2 class="section-title reveal">A litigation lawyer, on your side of the table</h2>
-      <div class="profile-grid">
-        <div class="reveal">
-          <p class="lead">I am a commercial disputes lawyer at Karanjawala&nbsp;&amp;&nbsp;Co., New Delhi — one of India's leading litigation firms — and independent legal counsel to agencies on monthly retainer.</p>
-          <p style="margin-top:22px">The retainer practice exists because growing agencies sign more contracts in a month than most companies do in a year, yet almost none have a lawyer on call. I fill that gap: <strong>fixed fee, fast turnaround, plain-English advice.</strong></p>
+  <!-- ======== HERO ======== -->
+  <section class="hero">
+    <div class="sheet">
+      <p class="mono matter">In the matter of: agencies &amp; their contracts</p>
+      <h1>External legal counsel <em>for agencies.</em></h1>
+      <p class="standfirst">On-call legal support for marketing, PR, influencer, ORM and event businesses — without the law-firm overhead.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="https://wa.me/917404692704?text=Hi%20Pranav%2C%20I%27d%20like%20to%20start%20with%20the%20free%20contract%20audit." target="_blank" rel="noopener">WhatsApp — +91 74046 92704</a>
+        <a class="btn" href="#retainer">How the retainer works</a>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>4</b><span>agency sectors on retainer</span></div>
+        <div class="fact"><b>48 hours</b><span>standard contract turnaround</span></div>
+        <div class="fact"><b>SC → Tribunals</b><span>dispute experience across forums</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 01 PROFILE ======== -->
+  <section class="clause" id="profile">
+    <div class="sheet clause-grid">
+      <div class="clause-marker">
+        <span class="num">Clause 01</span>
+        <span class="label">Profile</span>
+      </div>
+      <div>
+        <h2>A litigation lawyer, on <em>your</em> side of the table.</h2>
+        <div class="body">
+          <p class="drop">I am a commercial disputes lawyer at Karanjawala &amp; Co., New Delhi — one of India's leading litigation firms — and independent legal counsel to agencies on monthly retainer.</p>
+          <p>The retainer practice exists because growing agencies sign more contracts in a month than most companies do in a year, yet almost none have a lawyer on call. I fill that gap: <strong>fixed fee, fast turnaround, plain-English advice.</strong></p>
           <p>My current retainer clients span digital marketing, online reputation management, event management and online community management — so the legal patterns of agency work are ones I see every week, not once a year.</p>
         </div>
-        <div class="cred-card reveal">
-          <h3>Credentials</h3>
-          <ul>
-            <li>Advocate, Bar Council of Delhi (2024)</li>
-            <li>B.A. LL.B. (Hons.), Dr. B.R. Ambedkar National Law University — CGPA 9.0/10</li>
-            <li>Associate, Commercial Disputes Team, Karanjawala &amp; Co.</li>
-            <li>Matters before the Supreme Court, High Courts, NCLT, NCLAT and arbitral tribunals</li>
-            <li>Certified in Arbitration &amp; Conciliation — IAMC, Hyderabad</li>
-          </ul>
-        </div>
+        <dl class="rows" style="margin-top: 34px;">
+          <div class="row"><dt>Enrolment</dt><dd>Advocate, Bar Council of Delhi (2024)</dd></div>
+          <div class="row"><dt>Education</dt><dd>B.A. LL.B. (Hons.), Dr. B.R. Ambedkar National Law University — CGPA 9.0/10</dd></div>
+          <div class="row"><dt>Practice</dt><dd>Associate, Commercial Disputes Team, Karanjawala &amp; Co.</dd></div>
+          <div class="row"><dt>Forums</dt><dd>Supreme Court, High Courts, NCLT, NCLAT and arbitral tribunals</dd></div>
+          <div class="row"><dt>Certification</dt><dd>Arbitration &amp; Conciliation — IAMC, Hyderabad</dd></div>
+        </dl>
       </div>
     </div>
   </section>
 
-  <!-- ============ PROBLEM ============ -->
-  <section class="section-alt" id="problem">
-    <div class="container">
-      <span class="eyebrow reveal">The Problem</span>
-      <h2 class="section-title reveal">Agencies run on contracts.<br>Almost none have counsel.</h2>
-      <div class="cards-3">
-        <div class="card reveal">
-          <span class="num">01</span>
-          <h3>A contract stack per campaign</h3>
-          <p>Client MSAs, influencer deals, vendor POs, venue bookings, talent releases — every new project multiplies the paperwork.</p>
-        </div>
-        <div class="card reveal">
-          <span class="num">02</span>
-          <h3>Law-firm economics punish questions</h3>
-          <p>Per-matter billing means every query costs money. So contracts get signed unread — until one of them breaks.</p>
-        </div>
-        <div class="card reveal">
-          <span class="num">03</span>
-          <h3>One dispute erases a quarter</h3>
-          <p>Unpaid invoices, IP ownership fights, ASCI notices, exclusivity breaches — expensive precisely because nobody read the paper early.</p>
-        </div>
+  <!-- ======== 02 THE PROBLEM ======== -->
+  <section class="clause" id="problem">
+    <div class="sheet clause-grid">
+      <div class="clause-marker">
+        <span class="num">Clause 02</span>
+        <span class="label">The Problem</span>
       </div>
-      <div class="flip-note reveal">
-        A retainer flips the economics: <b>fixed monthly fee</b>, every contract read, disputes caught while they're still cheap.
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SERVICES ============ -->
-  <section id="services">
-    <div class="container">
-      <span class="eyebrow reveal">Scope of Work</span>
-      <h2 class="section-title reveal">What I handle</h2>
-      <p class="section-lede reveal">The full legal surface of an agency business — from the paperwork that starts a project to the dispute that could end one.</p>
-      <div class="services-grid">
-        <div class="service reveal">
-          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 12h6M9 16h6M9 8h2M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-          <h3>Client MSAs &amp; SOWs</h3>
-          <p>Scope, liability caps, payment terms with teeth.</p>
+      <div>
+        <h2>Agencies run on contracts. Almost none have counsel.</h2>
+        <div class="problems">
+          <div class="problem">
+            <div>
+              <h3>A contract stack per campaign</h3>
+              <p>Client MSAs, influencer deals, vendor POs, venue bookings, talent releases — every new project multiplies the paperwork.</p>
+            </div>
+          </div>
+          <div class="problem">
+            <div>
+              <h3>Law-firm economics punish questions</h3>
+              <p>Per-matter billing means every query costs money. So contracts get signed unread — until one of them breaks.</p>
+            </div>
+          </div>
+          <div class="problem">
+            <div>
+              <h3>One dispute erases a quarter</h3>
+              <p>Unpaid invoices, IP ownership fights, ASCI notices, exclusivity breaches — expensive precisely because nobody read the paper early.</p>
+            </div>
+          </div>
         </div>
-        <div class="service reveal">
-          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0 1 14 0v1"/></svg>
-          <h3>Influencer &amp; talent agreements</h3>
-          <p>Exclusivity, usage rights, deliverables, termination.</p>
-        </div>
-        <div class="service reveal">
-          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 10h2M9 14h2M13 10h2M13 14h2"/></svg>
-          <h3>Vendor, venue &amp; production</h3>
-          <p>Indemnities, cancellation, force majeure.</p>
-        </div>
-        <div class="service reveal">
-          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 2a3 3 0 0 1 3 3v1h3a2 2 0 0 1 2 2v3h-1a3 3 0 0 0 0 6h1v3a2 2 0 0 1-2 2h-3v-1a3 3 0 0 0-6 0v1H6a2 2 0 0 1-2-2v-3H3a3 3 0 0 1 0-6h1V8a2 2 0 0 1 2-2h3V5a3 3 0 0 1 3-3z"/></svg>
-          <h3>IP &amp; usage rights</h3>
-          <p>Assignment, licensing, portfolio rights.</p>
-        </div>
-        <div class="service reveal">
-          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>
-          <h3>Advertising compliance</h3>
-          <p>ASCI codes, DoCA endorsement rules.</p>
-        </div>
-        <div class="service reveal">
-          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 8.5-8.5 8.38 8.38 0 0 1 8.5 8.5z"/></svg>
-          <h3>Recoveries &amp; notices</h3>
-          <p>Demand notices, negotiated settlements.</p>
-        </div>
-        <div class="service reveal">
-          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="7" r="3"/><path d="M2 21v-1a6 6 0 0 1 12 0v1M17 4a3 3 0 0 1 0 6M22 21v-1a6 6 0 0 0-4-5.5"/></svg>
-          <h3>Employment &amp; freelancers</h3>
-          <p>Contracts, non-solicit, moonlighting, IP capture.</p>
-        </div>
-        <div class="service reveal">
-          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3v18M8 21h8M5 7l7-4 7 4M5 7l-3 7a3.5 3.5 0 0 0 6 0zM19 7l-3 7a3.5 3.5 0 0 0 6 0z"/></svg>
-          <h3>Disputes &amp; arbitration</h3>
-          <p>From first notice to final hearing.</p>
-        </div>
+        <p class="holding">
+          <span class="mono mono-tag">Held —</span>
+          A retainer flips the economics: <em>fixed monthly fee, every contract read, disputes caught while they're still cheap.</em>
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- ============ RETAINER ============ -->
-  <section class="section-alt" id="retainer">
-    <div class="container">
-      <span class="eyebrow reveal">The Retainer</span>
-      <h2 class="section-title reveal">How the retainer works</h2>
-      <div class="retainer-grid">
-        <div>
-          <div class="step reveal">
-            <div class="step-num">1</div>
+  <!-- ======== 03 SCOPE ======== -->
+  <section class="clause" id="scope">
+    <div class="sheet clause-grid">
+      <div class="clause-marker">
+        <span class="num">Clause 03</span>
+        <span class="label">Scope of Work</span>
+      </div>
+      <div>
+        <h2>What I handle.</h2>
+        <dl class="rows">
+          <div class="row"><dt>Client MSAs &amp; SOWs</dt><dd>Scope, liability caps, payment terms with teeth</dd></div>
+          <div class="row"><dt>Influencer &amp; talent agreements</dt><dd>Exclusivity, usage rights, deliverables, termination</dd></div>
+          <div class="row"><dt>Vendor, venue &amp; production</dt><dd>Indemnities, cancellation, force majeure</dd></div>
+          <div class="row"><dt>IP &amp; usage rights</dt><dd>Assignment, licensing, portfolio rights</dd></div>
+          <div class="row"><dt>Advertising compliance</dt><dd>ASCI codes, DoCA endorsement rules</dd></div>
+          <div class="row"><dt>Recoveries &amp; notices</dt><dd>Demand notices, negotiated settlements</dd></div>
+          <div class="row"><dt>Employment &amp; freelancers</dt><dd>Contracts, non-solicit, moonlighting, IP capture</dd></div>
+          <div class="row"><dt>Disputes &amp; arbitration</dt><dd>From first notice to final hearing</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== 04 RETAINER ======== -->
+  <section class="clause" id="retainer">
+    <div class="sheet clause-grid">
+      <div class="clause-marker">
+        <span class="num">Clause 04</span>
+        <span class="label">The Retainer</span>
+      </div>
+      <div>
+        <h2>How the retainer works.</h2>
+        <div class="steps">
+          <div class="step">
             <div>
               <h3>One fixed monthly fee</h3>
               <p>No hourly meters. A plan scoped to your contract volume — so asking a question never costs extra.</p>
             </div>
           </div>
-          <div class="step reveal">
-            <div class="step-num">2</div>
+          <div class="step">
             <div>
               <h3>Send anything, anytime</h3>
               <p>Contracts reviewed and returned within 48 hours. Quick questions answered same day, on WhatsApp or email.</p>
             </div>
           </div>
-          <div class="step reveal">
-            <div class="step-num">3</div>
+          <div class="step">
             <div>
               <h3>Covered when it breaks</h3>
               <p>Notices, negotiation and dispute strategy are included. Litigation or arbitration, if ever needed, at preferred rates.</p>
             </div>
           </div>
         </div>
-        <div class="plan-card reveal">
-          <h3>Every plan includes</h3>
+
+        <div class="schedule">
+          <div class="schedule-head">
+            <span>Schedule A — every plan includes</span>
+            <span class="ref">Annexure I</span>
+          </div>
           <ul>
-            <li>Contract review &amp; drafting</li>
-            <li>Templates for your recurring paperwork</li>
-            <li>Monthly legal health check</li>
-            <li>Dispute first-response</li>
+            <li>Contract review &amp; drafting <span class="incl">Included</span></li>
+            <li>Templates for your recurring paperwork <span class="incl">Included</span></li>
+            <li>Monthly legal health check <span class="incl">Included</span></li>
+            <li>Dispute first-response <span class="incl">Included</span></li>
           </ul>
-          <p class="plan-price">Plans from <b>₹15,000</b>/month<small>Scoped to your contract volume in our first conversation.</small></p>
-          <a class="btn btn-gold" href="#contact">Start With a Free Audit</a>
+          <div class="schedule-foot">
+            <div class="price">
+              Plans from ₹15,000 / month
+              <small>Scoped to volume in our first conversation</small>
+            </div>
+            <a class="btn btn-solid" href="#contact">Start with a free audit</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ CLIENTS ============ -->
-  <section id="clients">
-    <div class="container">
-      <span class="eyebrow reveal">Current Practice</span>
-      <h2 class="section-title reveal">Who I work with today</h2>
-      <div class="clients-grid">
-        <div class="client reveal">
-          <h3>Digital marketing agency</h3>
-          <p>Client MSAs and SOWs, freelancer IP assignment, payment-recovery notices.</p>
-        </div>
-        <div class="client reveal">
-          <h3>Online reputation management company</h3>
-          <p>Takedown escalations, defamation risk, client indemnities on removal mandates.</p>
-        </div>
-        <div class="client reveal">
-          <h3>Event management company</h3>
-          <p>Venue and vendor agreements, artist bookings, cancellation and liability clauses.</p>
-        </div>
-        <div class="client reveal">
-          <h3>Online community management agency</h3>
-          <p>Reddit-focused agency: platform-compliant engagement policies, client contracts, content and moderation risk.</p>
-        </div>
+  <!-- ======== 05 CLIENTS & MATTERS ======== -->
+  <section class="clause" id="matters">
+    <div class="sheet clause-grid">
+      <div class="clause-marker">
+        <span class="num">Clause 05</span>
+        <span class="label">Selected Matters</span>
       </div>
-      <p class="confidential-note reveal">Client identities withheld under confidentiality obligations. References available on request, with client consent.</p>
+      <div>
+        <h2>Who I work with — and what it looks like.</h2>
+        <div class="body">
+          <p>Current retainer clients: a <strong>digital marketing agency</strong> (MSAs, freelancer IP assignment, payment-recovery notices), an <strong>online reputation management company</strong> (takedown escalations, defamation risk, removal-mandate indemnities), an <strong>event management company</strong> (venue, vendor and artist agreements, cancellation and liability), and a <strong>Reddit-focused community management agency</strong> (platform-compliant engagement policies, content and moderation risk).</p>
+        </div>
+
+        <div style="margin-top: 40px;">
+          <div class="matter-item">
+            <div class="matter-head">
+              <h3>Recovering stuck receivables</h3>
+              <span class="venue">Digital marketing agency</span>
+            </div>
+            <div class="sao">
+              <div><h4>Situation</h4><p>Lakhs in unpaid fees across multiple client invoices, some months overdue.</p></div>
+              <div><h4>Approach</h4><p>Demand notices and renegotiated schedules; MSA rewritten with interest and stop-work rights.</p></div>
+              <div><h4>Outcome</h4><p>The substantial majority recovered without litigation; no repeat defaults since.</p></div>
+            </div>
+          </div>
+          <div class="matter-item">
+            <div class="matter-head">
+              <h3>Making takedowns defensible</h3>
+              <span class="venue">ORM company</span>
+            </div>
+            <div class="sao">
+              <div><h4>Situation</h4><p>Removal mandates carried open-ended promises and defamation exposure.</p></div>
+              <div><h4>Approach</h4><p>Redrafted contracts with scoped deliverables and indemnities; built a legal escalation protocol.</p></div>
+              <div><h4>Outcome</h4><p>Risk contained — and the protocol is now sold as a premium service tier.</p></div>
+            </div>
+          </div>
+          <div class="matter-item">
+            <div class="matter-head">
+              <h3>Cancellation without casualties</h3>
+              <span class="venue">Event management company</span>
+            </div>
+            <div class="sao">
+              <div><h4>Situation</h4><p>A cancelled event threatened forfeiture of advances and a stack of vendor claims.</p></div>
+              <div><h4>Approach</h4><p>Force-majeure and cancellation renegotiation across the venue and vendor stack.</p></div>
+              <div><h4>Outcome</h4><p>Advances preserved and claims settled — nothing reached a courtroom.</p></div>
+            </div>
+          </div>
+        </div>
+        <p class="aside-note">Client identities, details and figures withheld under confidentiality obligations; shared in conversation with client consent. References available on request.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ============ CASE STUDIES ============ -->
-  <section class="section-alt" id="work">
-    <div class="container">
-      <span class="eyebrow reveal">Selected Work</span>
-      <h2 class="section-title reveal">Selected work, anonymised</h2>
-      <div class="cases-grid">
-        <div class="case reveal">
-          <div class="case-head">
-            <span class="tag">Digital Marketing Agency</span>
-            <h3>Recovering stuck receivables</h3>
-          </div>
-          <div class="case-body">
-            <div><h4>Situation</h4><p>Lakhs in unpaid fees across multiple client invoices, some months overdue.</p></div>
-            <div><h4>Approach</h4><p>Demand notices and renegotiated schedules; MSA rewritten with interest and stop-work rights.</p></div>
-            <div><h4>Outcome</h4><p>The substantial majority recovered without litigation; no repeat defaults since.</p></div>
-          </div>
-        </div>
-        <div class="case reveal">
-          <div class="case-head">
-            <span class="tag">ORM Company</span>
-            <h3>Making takedowns defensible</h3>
-          </div>
-          <div class="case-body">
-            <div><h4>Situation</h4><p>Removal mandates carried open-ended promises and defamation exposure.</p></div>
-            <div><h4>Approach</h4><p>Redrafted contracts with scoped deliverables and indemnities; built a legal escalation protocol.</p></div>
-            <div><h4>Outcome</h4><p>Risk contained — and the protocol is now sold as a premium service tier.</p></div>
-          </div>
-        </div>
-        <div class="case reveal">
-          <div class="case-head">
-            <span class="tag">Event Management Company</span>
-            <h3>Cancellation without casualties</h3>
-          </div>
-          <div class="case-body">
-            <div><h4>Situation</h4><p>A cancelled event threatened forfeiture of advances and a stack of vendor claims.</p></div>
-            <div><h4>Approach</h4><p>Force-majeure and cancellation renegotiation across the venue and vendor stack.</p></div>
-            <div><h4>Outcome</h4><p>Advances preserved and claims settled — nothing reached a courtroom.</p></div>
-          </div>
-        </div>
+  <!-- ======== 06 IF IT BECOMES A FIGHT ======== -->
+  <section class="clause" id="disputes">
+    <div class="sheet clause-grid">
+      <div class="clause-marker">
+        <span class="num">Clause 06</span>
+        <span class="label">If It Becomes a Fight</span>
       </div>
-      <p class="confidential-note reveal">Details and figures shared in conversation; withheld here to protect client confidentiality.</p>
+      <div>
+        <h2>Counsel who has worked at <em>every level</em> of the system.</h2>
+        <div class="body">
+          <p>Retainer work is mostly prevention. When prevention isn't enough, your counsel brings dispute experience from India's highest forums.</p>
+        </div>
+        <div style="margin-top: 30px;">
+          <div class="forum-row">
+            <h3>Supreme Court of India</h3>
+            <p>Briefed Senior Advocates and assisted in matters up to a 9-judge Constitution Bench; drafted SLPs, written submissions and review pleadings.</p>
+          </div>
+          <div class="forum-row">
+            <h3>International arbitration</h3>
+            <p>Acting for the claimant in a cross-border turnkey contract dispute (India–Uganda), before a three-member tribunal seated in New Delhi.</p>
+          </div>
+          <div class="forum-row">
+            <h3>Domestic arbitration</h3>
+            <p>Long-term mining and excavation contract dispute against a public-sector counterparty — pleadings before the arbitral tribunal.</p>
+          </div>
+          <div class="forum-row">
+            <h3>Tribunals &amp; regulatory</h3>
+            <p>NCLT and NCLAT hearings; regulatory and tender litigation for a consortium of nineteen manufacturers in the ethanol programme.</p>
+          </div>
+        </div>
+        <p class="aside-note">Experience gained at Karanjawala &amp; Co. and in the chambers of an Advocate-on-Record, Supreme Court of India.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ============ LITIGATION ============ -->
-  <section class="dark-section" id="litigation">
-    <div class="container">
-      <span class="eyebrow reveal">If It Ever Becomes a Fight</span>
-      <h2 class="section-title reveal">Counsel who has worked at every level of the system</h2>
-      <p class="section-lede reveal">Retainer work is mostly prevention. When prevention isn't enough, your counsel brings dispute experience from India's highest forums.</p>
-      <div class="forums-grid">
-        <div class="forum reveal">
-          <h3>Supreme Court of India</h3>
-          <p>Briefed Senior Advocates and assisted in matters up to a 9-judge Constitution Bench; drafted SLPs, written submissions and review pleadings.</p>
-        </div>
-        <div class="forum reveal">
-          <h3>International arbitration</h3>
-          <p>Acting for the claimant in a cross-border turnkey contract dispute (India–Uganda), before a three-member tribunal seated in New Delhi.</p>
-        </div>
-        <div class="forum reveal">
-          <h3>Domestic arbitration</h3>
-          <p>Long-term mining and excavation contract dispute against a public-sector counterparty — pleadings before the arbitral tribunal.</p>
-        </div>
-        <div class="forum reveal">
-          <h3>Tribunals &amp; regulatory</h3>
-          <p>NCLT and NCLAT hearings; regulatory and tender litigation for a consortium of nineteen manufacturers in the ethanol programme.</p>
-        </div>
+  <!-- ======== 07 EXPERIENCE ======== -->
+  <section class="clause" id="experience">
+    <div class="sheet clause-grid">
+      <div class="clause-marker">
+        <span class="num">Clause 07</span>
+        <span class="label">Curriculum Vitae</span>
       </div>
-      <p class="dark-note reveal">Experience gained at Karanjawala &amp; Co. and in the chambers of an Advocate-on-Record, Supreme Court of India.</p>
-    </div>
-  </section>
-
-  <!-- ============ CV ============ -->
-  <section id="experience">
-    <div class="container">
-      <span class="eyebrow reveal">Curriculum Vitae</span>
-      <h2 class="section-title reveal">At a glance</h2>
-      <div class="cv-grid">
-        <div class="timeline">
-          <div class="tl-item reveal">
-            <span class="when">2025 — Present</span>
-            <h3>Karanjawala &amp; Co., New Delhi</h3>
-            <p>Associate, Commercial Disputes Team</p>
+      <div>
+        <h2>At a glance.</h2>
+        <div>
+          <div class="cv-row">
+            <span class="when">2025 —</span>
+            <div><h3>Karanjawala &amp; Co., New Delhi</h3><p>Associate, Commercial Disputes Team</p></div>
           </div>
-          <div class="tl-item reveal">
-            <span class="when">2025 — Present</span>
-            <h3>Independent retainer practice</h3>
-            <p>External legal counsel to agencies — 4 sectors currently served</p>
+          <div class="cv-row">
+            <span class="when">2025 —</span>
+            <div><h3>Independent retainer practice</h3><p>External legal counsel to agencies — four sectors currently served</p></div>
           </div>
-          <div class="tl-item reveal">
-            <span class="when">2024 — 2025</span>
-            <h3>Chambers of Mr. Vipul Kumar, AoR, Supreme Court</h3>
-            <p>Advocate — drafting and appearances, SC / Delhi HC / NCLT / NCLAT</p>
+          <div class="cv-row">
+            <span class="when">2024 — 25</span>
+            <div><h3>Chambers of Mr. Vipul Kumar, AoR, Supreme Court</h3><p>Advocate — drafting and appearances, SC / Delhi HC / NCLT / NCLAT</p></div>
           </div>
-          <div class="tl-item reveal">
-            <span class="when">2019 — 2024</span>
-            <h3>Dr. B.R. Ambedkar National Law University</h3>
-            <p>B.A. LL.B. (Hons.) — CGPA 9.0/10</p>
+          <div class="cv-row">
+            <span class="when">2019 — 24</span>
+            <div><h3>Dr. B.R. Ambedkar National Law University</h3><p>B.A. LL.B. (Hons.) — CGPA 9.0/10</p></div>
           </div>
         </div>
-        <div class="also-card reveal">
-          <h3>Also</h3>
+        <div class="cv-also">
+          <span class="mono mono-tag">Also of record —</span>
           <ul>
             <li>Trained across Trilegal, Khaitan &amp; Co., IndusLaw, Tuli &amp; Co. and Phoenix Legal (commercial disputes)</li>
             <li>Judicial internships: Justice Abhay S. Oka (Supreme Court); Justice N. Kotiswar Singh (Gauhati HC)</li>
             <li>Published: “Interpreting Article 142”, Indian Constitutional Review Journal (2023)</li>
             <li>Certified: Arbitration &amp; Conciliation, IAMC Hyderabad</li>
           </ul>
-          <p class="cv-note">Full CV available on request.</p>
+          <p class="aside-note">Full CV available on request.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ CONTACT ============ -->
-  <section class="section-alt contact" id="contact">
-    <div class="container">
-      <span class="eyebrow reveal">No Obligation</span>
-      <h2 class="section-title reveal">Start with a free contract audit.</h2>
-      <p class="section-lede reveal">Send me your standard client or influencer agreement. Within the week, you'll have the top three gaps — in writing, no obligation. If the audit is useful, we talk retainer.</p>
-      <div class="contact-actions reveal">
-        <a class="btn btn-gold" href="https://wa.me/917404692704?text=Hi%20Pranav%2C%20I%27d%20like%20to%20start%20with%20the%20free%20contract%20audit." target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2-1.42.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.58-.35zM12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.85 9.85 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.87-9.9 9.87zm8.42-18.29A11.8 11.8 0 0 0 12.04 0C5.46 0 .1 5.35.1 11.92c0 2.1.55 4.15 1.6 5.96L0 24l6.27-1.64a11.94 11.94 0 0 0 5.77 1.47h.01c6.58 0 11.94-5.35 11.94-11.93 0-3.18-1.24-6.18-3.52-8.4z"/></svg>
-          WhatsApp: +91 74046 92704
-        </a>
-        <a class="btn btn-primary" href="mailto:pranav.nlus@gmail.com?subject=Free%20contract%20audit&body=Hi%20Pranav%2C%0A%0AI%27d%20like%20a%20free%20audit%20of%20our%20standard%20agreement.%20Attached%20is%20the%20contract.%0A%0AAgency%3A%20%0AWhat%20we%20do%3A%20">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6L22 7"/></svg>
-          Email the Contract
-        </a>
+  <!-- ======== CONTACT ======== -->
+  <section class="contact" id="contact">
+    <div class="sheet">
+      <p class="mono matter">Prayer for relief — no obligation</p>
+      <h2>Start with a <em>free contract audit.</em></h2>
+      <p class="body">Send me your standard client or influencer agreement. Within the week, you'll have the top three gaps — in writing, no obligation. If the audit is useful, we talk retainer.</p>
+      <div class="contact-actions">
+        <a class="btn btn-solid" href="https://wa.me/917404692704?text=Hi%20Pranav%2C%20I%27d%20like%20to%20start%20with%20the%20free%20contract%20audit." target="_blank" rel="noopener">WhatsApp the contract</a>
+        <a class="btn" href="mailto:pranav.nlus@gmail.com?subject=Free%20contract%20audit&body=Hi%20Pranav%2C%0A%0AI%27d%20like%20a%20free%20audit%20of%20our%20standard%20agreement.%20Attached%20is%20the%20contract.%0A%0AAgency%3A%20%0AWhat%20we%20do%3A%20">Email the contract</a>
       </div>
-      <p class="contact-details reveal">
-        <a href="tel:+917404692704">+91 74046 92704</a> <span class="sep">·</span>
-        <a href="mailto:pranav.nlus@gmail.com">pranav.nlus@gmail.com</a> <span class="sep">·</span>
-        <a href="https://www.linkedin.com/in/pranavgargdbranlu" target="_blank" rel="noopener">LinkedIn</a> <span class="sep">·</span>
-        New Delhi — working with agencies across India
-      </p>
+      <div class="contact-rows">
+        <div class="contact-row"><span class="k">Telephone</span><span class="v"><a href="tel:+917404692704">+91 74046 92704</a></span></div>
+        <div class="contact-row"><span class="k">Email</span><span class="v"><a href="mailto:pranav.nlus@gmail.com">pranav.nlus@gmail.com</a></span></div>
+        <div class="contact-row"><span class="k">LinkedIn</span><span class="v"><a href="https://www.linkedin.com/in/pranavgargdbranlu" target="_blank" rel="noopener">linkedin.com/in/pranavgargdbranlu</a></span></div>
+        <div class="contact-row"><span class="k">Chambers</span><span class="v">New Delhi — working with agencies across India</span></div>
+      </div>
     </div>
   </section>
 
-  <!-- ============ FOOTER ============ -->
-  <footer>
-    <div class="container footer-inner">
-      <span class="brand">Pranav Garg<span class="dot">.</span> <span style="font-family:'Lora',serif;font-size:13px;color:#8d99a6;">· Advocate</span></span>
-      <span>Bar Council of Delhi (D/8794/2024) · New Delhi</span>
+  <!-- ======== COLOPHON ======== -->
+  <footer class="colophon">
+    <div class="sheet colophon-inner">
+      <span>Pranav Garg · Advocate</span>
+      <span>Bar Council of Delhi · D/8794/2024</span>
       <span><a href="https://wa.me/917404692704" target="_blank" rel="noopener">WhatsApp</a> · <a href="mailto:pranav.nlus@gmail.com">Email</a> · <a href="https://www.linkedin.com/in/pranavgargdbranlu" target="_blank" rel="noopener">LinkedIn</a></span>
     </div>
   </footer>
 
-  <a class="wa-float" href="https://wa.me/917404692704?text=Hi%20Pranav%2C%20I%27d%20like%20to%20start%20with%20the%20free%20contract%20audit." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.1 4.49.71.3 1.27.49 1.7.63.72.23 1.37.2 1.88.12.58-.09 1.76-.72 2-1.42.25-.7.25-1.29.18-1.42-.08-.12-.28-.2-.58-.35zM12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.85 9.85 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.87-9.9 9.87zm8.42-18.29A11.8 11.8 0 0 0 12.04 0C5.46 0 .1 5.35.1 11.92c0 2.1.55 4.15 1.6 5.96L0 24l6.27-1.64a11.94 11.94 0 0 0 5.77 1.47h.01c6.58 0 11.94-5.35 11.94-11.93 0-3.18-1.24-6.18-3.52-8.4z"/></svg>
-  </a>
-
-  <script>
-    // Sticky nav shadow
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 10);
-    }, { passive: true });
-
-    // Mobile menu
-    const toggle = document.getElementById('navToggle');
-    const links = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => {
-      const open = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open);
-    });
-    links.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => {
-        links.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      })
-    );
-
-    // Scroll reveal
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
 </body>
 </html>
